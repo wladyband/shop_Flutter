@@ -4,9 +4,9 @@ import 'package:shop/models/cart_item.dart';
 class CartItemWidget extends StatelessWidget {
   final CartItem cartItem;
 
-  const CartItemWidget({
+  const CartItemWidget(
+    this.cartItem, {
     Key? key,
-    required this.cartItem
   }) : super(key: key);
 
   @override
