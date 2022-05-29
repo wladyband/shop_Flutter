@@ -8,10 +8,7 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = Provider.of<Cart>(
-        context,
-        listen: false
-    );
+    final cart = Provider.of<Cart>(context, listen: false);
     final items = cart.items.values.toList();
 
     return Scaffold(
@@ -21,7 +18,10 @@ class CartPage extends StatelessWidget {
       body: Column(
         children: [
           Card(
-            margin: const EdgeInsets.all(25),
+            margin: const EdgeInsets.symmetric(
+              horizontal: 15,
+              vertical: 25
+            ),
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Row(
@@ -37,7 +37,7 @@ class CartPage extends StatelessWidget {
                   Chip(
                     backgroundColor: Theme.of(context).primaryColor,
                     label: Text(
-                        'R\$${cart.totalAmount}',
+                      'R\$${cart.totalAmount}',
                       style: TextStyle(
                         color:
                             Theme.of(context).primaryTextTheme.headline6?.color,
@@ -58,10 +58,9 @@ class CartPage extends StatelessWidget {
           ),
           Expanded(
               child: ListView.builder(
-                  itemCount: items.length,
-                  itemBuilder: (ctx, i)  => CartItemWidget(items[i]),
-              )
-          )
+            itemCount: items.length,
+            itemBuilder: (ctx, i) => CartItemWidget(items[i]),
+          ))
         ],
       ),
     );
