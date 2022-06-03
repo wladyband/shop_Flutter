@@ -27,16 +27,15 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Minha Loja'),
+        title: const Text('Minha Loja'),
         actions: [
           PopupMenuButton(
-
               itemBuilder: (_) => [
-                PopupMenuItem(
+              const  PopupMenuItem(
                     child: Text('Somente Favoritos'),
                   value: FilterOptions.Favorite,
                 ),
-                PopupMenuItem(
+             const  PopupMenuItem(
                   child: Text('Todos'),
                   value: FilterOptions.All,
                 )
@@ -56,7 +55,7 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
                 onPressed: (){
                   Navigator.of(context).pushNamed(AppRoutes.CART);
                 },
-                icon: Icon(Icons.shopping_cart)
+                icon: const Icon(Icons.shopping_cart)
             ),
             builder:(ctx, cart, child) => Badge(
               value: cart.itemsCount.toString(),

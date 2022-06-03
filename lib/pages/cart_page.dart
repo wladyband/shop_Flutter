@@ -13,27 +13,24 @@ class CartPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Carrinho'),
+        title: const Text('Carrinho'),
       ),
       body: Column(
         children: [
           Card(
-            margin: const EdgeInsets.symmetric(
-              horizontal: 15,
-              vertical: 25
-            ),
+            margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Total',
                     style: TextStyle(
                       fontSize: 20,
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Chip(
                     backgroundColor: Theme.of(context).primaryColor,
                     label: Text(
@@ -57,10 +54,11 @@ class CartPage extends StatelessWidget {
             ),
           ),
           Expanded(
-              child: ListView.builder(
-            itemCount: items.length,
-            itemBuilder: (ctx, i) => CartItemWidget(items[i]),
-          ))
+            child: ListView.builder(
+              itemCount: items.length,
+              itemBuilder: (ctx, i) => CartItemWidget(items[i]),
+            ),
+          ),
         ],
       ),
     );
